@@ -1,0 +1,34 @@
+#define LED1PIN 5
+#define LED2PIN 6
+#define LED3PIN 9
+#define LED4PIN 10
+
+void setup()
+{
+  pinMode(A0,INPUT);  //PIR SENSOR
+  pinMode(5,OUTPUT);  //LED1
+  pinMode(6,OUTPUT); //LED1
+  pinMode(9,OUTPUT); //LED1
+  pinMode(10,OUTPUT); //LED1
+}
+
+void loop() 
+{
+  int PIR=analogRead(A0);
+  if(PIR >= 600)
+  {
+    digitalWrite(5,HIGH);   //LED1 ON 
+    digitalWrite(6,HIGH);   //LED2 ON
+    delay(3000);    //PROGRAMME WILL BE PAUSE FOR 3SEC
+    digitalWrite(5,LOW);    //LED1 OFF
+    digitalWrite(6,HIGH);   //LED2 ON
+    digitalWrite(9,HIGH);   //LED3 ON
+    delay(3000);    //PROGRAMME WILL BE PAUSE FOR 3SEC
+    digitalWrite(6,LOW);  //LED2 OFF
+    digitalWrite(9,HIGH);   //LED3 ON
+    digitalWrite(10,HIGH);    //LED4 ON
+    delay(3000);    //PROGRAMME WILL BE PAUSE FOR 3SEC
+    digitalWrite(9,LOW);  //LED3 OFF
+    digitalWrite(10,LOW);   //LED4 OFF
+  }
+}
